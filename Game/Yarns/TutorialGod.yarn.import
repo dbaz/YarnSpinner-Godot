@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://c0cxpyq0lwb2h"
+path="res://.godot/imported/TutorialGod.yarn-6fed010c5be6e64db6061f04b2fa54bf.tres"
+
+[deps]
+
+source_file="res://Yarns/TutorialGod.yarn"
+dest_files=["res://.godot/imported/TutorialGod.yarn-6fed010c5be6e64db6061f04b2fa54bf.tres"]
+
+[params]
+

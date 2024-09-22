@@ -1,0 +1,25 @@
+title: Start
+---
+God: Hello, little one! Don't worry, I am here.
+    -> Wait, who are you?
+        God: You don't remember me? Well! Lucky that my love for you has no bounds. 
+        God: I am the one who has been with you since you were formed by the cosmos.
+        God: I have been with you, watching you grow.
+        God: You have seen me in your dreams, but perhaps you do not wish to remember.
+        God: It is no matter.
+        <<jump devotion>>
+    -> Not you again.
+        God: You remember me! I sparkle with joy. 
+         <<jump devotion>>
+    -> It is you, my love!
+        <<jump devotion>>
+===
+title: devotion
+---
+God: My devotion to you is unlimited. 
+God: I have traversed time and space to always be with you. 
+    -> What do you want?
+        God: I think, if is not too presumptuous of me to say, that we should make our bond official.
+        <<jump Start>>
+
+===
