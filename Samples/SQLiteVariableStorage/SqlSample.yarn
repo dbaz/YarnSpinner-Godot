@@ -1,0 +1,41 @@
+﻿title: SqlSample
+tags:
+---
+<<declare $characterName = "" as string>>
+<<declare $numVariables = 0>>
+<<declare $impressed = false as bool>>
+Guide: Alright, I've been waiting for my last applicant of the day.  
+Guide: Hmm, how do you say your name!? It says "S-Q-L".
+-> Eskew-well 
+  <<set $characterName to "Eskew-well">>
+-> Seekwill
+  <<set $characterName to "Seekwill">>
+{$characterName}: My name is {$characterName}.
+{$characterName}: I have trained for one thousand years to store the most variables of all time.
+Guide: Wow. Impressive! Just how many variables do you think you could store?? 
+-> There's no limit.
+   <<set $numVariables to -1>>
+   Guide: Wh- what? Unlimited?? 
+   Guide: Gahhh!!! 
+   The guide ran away. 
+   <<stop>>
+-> Sixty two thousand. 
+   <<set $numVariables to 62000>>
+   Guide: Formidable... imagine the heights you could reach under our guidance.
+   <<set $impressed to true>>
+-> One thousand. 
+   <<set $numVariables to 1000>>
+   Guide: Hmm. That's not bad. 
+   <<set $impressed to true>>
+-> Three. 
+   <<set $numVariables to 3>>
+   Guide: I ...see.
+   <<set $impressed to false>>
+
+Guide: Alright then, {$characterName}. You can store {$numVariables} variables... 
+<<if $impressed>>
+Guide: Welcome to Variable Academy.
+<<else>>
+Guide: I'm afraid you're not cut out for Variable Academy.
+<<endif>>
+===
