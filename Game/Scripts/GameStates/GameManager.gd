@@ -12,7 +12,7 @@ func _ready():
 	print(self.get_path())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if not has_loaded:
 		has_loaded = true
 	

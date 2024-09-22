@@ -77,13 +77,14 @@ func on_game_started():
 func _get_player():
 	return game_manager.current_state.player
 
-func on_player_traveled(old_place: PlaceBase, new_place: PlaceBase):
+func on_player_traveled(_old_place: PlaceBase, new_place: PlaceBase):
 	if new_place is PlaceShop:
-		var purchase_lambda = func purchase(purchased_item: Item):
-			print_debug("Purchase lambda called: " + purchased_item.name)
+		#var purchase_lambda = func purchase(purchased_item: Item):
+		#print_debug("Purchase lambda called: " + purchased_item.name)
+		pass
 
 
-func on_playstate_changed(previous_state: PlayState.PlayStateStatus, new_status: PlayState.PlayStateStatus):
+func on_playstate_changed(_previous_state: PlayState.PlayStateStatus, new_status: PlayState.PlayStateStatus):
 	#game_manager.current_state
 	if new_status == PlayState.PlayStateStatus.PLAYSTATE_STARTED:
 		on_game_started()
@@ -143,7 +144,7 @@ func _setup_ui_callbacks():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 # action from entry node

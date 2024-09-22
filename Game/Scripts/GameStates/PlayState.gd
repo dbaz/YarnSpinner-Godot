@@ -28,7 +28,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func start():
@@ -100,5 +100,5 @@ func add_actions(new_actions:Array[ActionEntryItem]):
 	available_actions += new_actions
 	on_actions_changed.emit(available_actions)
 
-func remove_actions(new_actions:Array[ActionEntryItem]):
+func remove_actions(_new_actions:Array[ActionEntryItem]):
 	pass

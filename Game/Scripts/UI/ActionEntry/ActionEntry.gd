@@ -11,10 +11,10 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func _on_text_changed(entered_text):
+func _on_text_changed(_entered_text):
 	print("text Changes!")
 
 func _on_text_submitted(entered_text):

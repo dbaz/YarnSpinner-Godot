@@ -21,7 +21,7 @@ func _ready():
 	await start() # run start in the next frame
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func start():
@@ -37,11 +37,11 @@ func unregister_action_provider(provider:ActionProviderBase):
 		action_providers.append(provider)
 		provider.on_available_actions_changed.connect(on_available_actions_changed)
 
-func on_available_actions_changed(old_actions: Dictionary, new_actions: Dictionary):
+func on_available_actions_changed(_old_actions: Dictionary, new_actions: Dictionary):
 	# receive a dictionary of a
 	action_presenter.new_actions = new_actions
 
-func on_player_traveled(old_place:PlaceBase, new_place:PlaceBase):
+func on_player_traveled(_old_place:PlaceBase, new_place:PlaceBase):
 	available_actions.clear()
 
 	if new_place.has_inventory() and get_inventory().size():
