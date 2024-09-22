@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmrdcxma66w"]
-
-[ext_resource type="PackedScene" uid="uid://5sm7vs2ivbkx" path="res://Scripts/UI/ActionEntry/Scenes/action_ui.tscn" id="1_kxarv"]
-
-[node name="root" type="Node2D"]
-
-[node name="ActionUI" parent="." instance=ExtResource("1_kxarv")]
-
-[editable path="ActionUI"]
