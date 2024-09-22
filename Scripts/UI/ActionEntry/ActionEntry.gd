@@ -14,11 +14,10 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_text_changed(new_text):
+func _on_text_changed(entered_text):
 	print("text Changes!")
-	var is_valid: bool = true # You can implement your validation logic here
 
-	if is_valid:
-		emit_signal("action_submitted", new_text)
-	else:
-		print("Invalid text entered!")
+func _on_text_submitted(entered_text):
+	print("Cats ON SUMBMITTED ",entered_text)
+	action_submitted.emit(entered_text)
+

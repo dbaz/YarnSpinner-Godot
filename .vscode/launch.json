@@ -20,20 +20,28 @@
       "preLaunchTask": "build"
     },
     {
-      "name": "Run Gods",
-      "type": "coreclr",
+      "name": "Launch-Gods",
+      "type": "godot",
       "request": "launch",
-      "preLaunchTask": "build",
-      "program": "E:/ENGINES/GodotExe/Godot_v4.2.1-stable_mono_win64/Godot_v4.2.1-stable_mono_win64.exe",
-      "args": [],
-      "cwd": "${workspaceFolder}",
-      "stopAtEntry": false,
-      "console": "internalConsole",
-    },
-    {
-      "name": "Attach",
-      "type": "coreclr",
-      "request": "attach",
+      "project": "${workspaceFolder}",
+      "address": "127.0.0.1",
+      "port": 6007,
+      "scene": "GameScene",
+      "editor_path": "E:/ENGINES/GodotExe/Godot_v4.2.1-stable_mono_win64/Godot_v4.2.1-stable_mono_win64_console.exe",
+      // engine command line flags
+      "profiling": false,
+      "single_threaded_scene": false,
+      "debug_collisions": false,
+      "debug_paths": false,
+      "debug_navigation": false,
+      "debug_avoidance": false,
+      "debug_stringnames": false,
+      "frame_delay": 0,
+      "time_scale": 1.0,
+      "disable_vsync": false,
+      "fixed_fps": 60,
+      // anything else
+      "additional_options": ""
     }
   ]
 }
