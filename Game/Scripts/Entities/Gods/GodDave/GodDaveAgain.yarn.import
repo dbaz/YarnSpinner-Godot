@@ -1,0 +1,14 @@
+[remap]
+
+importer="yarnscript"
+type="Resource"
+uid="uid://bdpibptjjos63"
+path="res://.godot/imported/GodDaveAgain.yarn-d2c466e845322e7a251cbc592d84cdbb.tres"
+
+[deps]
+
+source_file="res://Scripts/Entities/Gods/GodDave/GodDaveAgain.yarn"
+dest_files=["res://.godot/imported/GodDaveAgain.yarn-d2c466e845322e7a251cbc592d84cdbb.tres"]
+
+[params]
+

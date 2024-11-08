@@ -22,6 +22,7 @@ Global="res://Scripts/Global.gd"
 [dotnet]
 
 project/assembly_name="Gods"
+project/solution_directory="E:\\CODE\\Gods\\Game"
 
 [editor_plugins]
 

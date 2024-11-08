@@ -10,6 +10,10 @@ class_name ActionPresenter
 var current_actions = []
 var built_in_commands = {}
 
+func get_play_state() -> PlayState:
+	return game_manager.current_state
+
+
 func on_action_submitted(action_text: String):
 	if action_text in built_in_commands:
 		built_in_commands[action_text].select_action.call()
@@ -46,6 +50,7 @@ func on_action_submitted(action_text: String):
 
 func _create_back_action():
 	var back_action: ActionEntryItem = ActionEntryItem.new()
+	back_action.play_state = get_play_state()
 	back_action.action_name = "Back"
 	back_action.items_action = Callable()
 	back_action.select_action = back
@@ -66,6 +71,7 @@ func back():
 
 func on_game_started():
 	var back_action: ActionEntryItem = ActionEntryItem.new()
+	back_action.play_state = get_play_state()
 	back_action.items_action = Callable()
 	back_action.select_action = back
 	built_in_commands = {"Back": back_action}
@@ -149,8 +155,6 @@ func _process(_delta):
 
 # action from entry node
 func _on_action_entry_action_submitted(action_text):
-	print("Action is " + action_text)
-	#text_ledger_node.add_text_line("", [action_text])
 	on_action_submitted(action_text)
 
 

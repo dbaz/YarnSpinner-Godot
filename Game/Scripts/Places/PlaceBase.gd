@@ -32,14 +32,17 @@ func on_player_traveled(old_place: PlaceBase, new_location: PlaceBase):
 	elif self == old_place:
 		has_left_location()
 
-func has_entered_location(): 
+func has_entered_location() -> void: 
 	var state = get_play_state()
 	state.add_actions(get_available_actions())
 
-func has_left_location():
+func has_left_location() -> void:
 	pass
 
-func has_inventory():
+func has_inventory() -> bool:
+	return false
+
+func can_rest() -> bool:
 	return false
 
 func get_adjacent_places() -> Array[PlaceBase]:

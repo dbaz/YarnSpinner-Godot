@@ -16,8 +16,8 @@
       "cwd": "${workspaceFolder}",
       "environment": [],
       "console": "internalConsole",
-      "visualizerFile": "${workspaceFolder}/platform/windows/godot.natvis",
-      "preLaunchTask": "build"
+      "visualizerFile": "D:/CODE/godot/platform/windows/godot.natvis",
+      "preLaunchTask": "build",
     },
     {
       "name": "Launch-Gods",

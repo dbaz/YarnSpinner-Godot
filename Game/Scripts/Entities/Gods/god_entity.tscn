@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw370jhio1uwv"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/God.gd" id="1_cb467"]
+
+[node name="GodDave" type="Node"]
+script = ExtResource("1_cb467")
+
+[node name="GodData" type="Node" parent="."]

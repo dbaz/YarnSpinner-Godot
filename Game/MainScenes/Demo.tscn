@@ -1,0 +1,259 @@
+[gd_scene load_steps=9 format=3 uid="uid://by0f1c0uls4wy"]
+
+[ext_resource type="Script" path="res://addons/YarnSpinner-Godot/Runtime/DialogueRunner.cs" id="1_nl1sv"]
+[ext_resource type="Resource" uid="uid://bx886k6nswa24" path="res://GodsYarnProject.yarnproject" id="2_1ijsh"]
+[ext_resource type="Script" path="res://addons/YarnSpinner-Godot/Runtime/Views/LineView.cs" id="4_iaopp"]
+[ext_resource type="Script" path="res://addons/YarnSpinner-Godot/Runtime/Views/OptionsListView.cs" id="5_pwlqh"]
+[ext_resource type="PackedScene" uid="uid://b56ngcrq31nc5" path="res://addons/YarnSpinner-Godot/Scenes/OptionView.tscn" id="6_8omcf"]
+[ext_resource type="Script" path="res://addons/YarnSpinner-Godot/Runtime/InMemoryVariableStorage.cs" id="7_fvi7l"]
+[ext_resource type="Script" path="res://Scripts/TestCode/TestYarnCommands.gd" id="8_7awn8"]
+[ext_resource type="Script" path="res://addons/YarnSpinner-Godot/Runtime/LineProviders/TextLineProvider.cs" id="8_iafak"]
+
+[node name="YarnSpinnerCanvasLayer" type="CanvasLayer"]
+
+[node name="DialogueRunner" type="Control" parent="." node_paths=PackedStringArray("variableStorage", "dialogueViews", "lineProvider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_nl1sv")
+yarnProject = ExtResource("2_1ijsh")
+variableStorage = NodePath("../InMemoryVariableStorage")
+dialogueViews = [NodePath("../LineView"), NodePath("../OptionsListView")]
+startNode = "Start"
+lineProvider = NodePath("../TextLineProvider")
+
+[node name="VariableDebugText" type="RichTextLabel" parent="."]
+
+[node name="LineView" type="Control" parent="." node_paths=PackedStringArray("characterNameText", "continueButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_iaopp")
+viewControlPath = NodePath("ViewControl")
+useFadeEffect = false
+lineTextPath = NodePath("ViewControl/LineText")
+characterNameText = NodePath("ViewControl/CharacterNameText")
+typewriterEffectSpeed = 80.0
+continueButton = NodePath("ViewControl/ContinueButton")
+
+[node name="ViewControl" type="Control" parent="LineView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineText" type="RichTextLabel" parent="LineView/ViewControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 674.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+bbcode_enabled = true
+text = "The dialogue text should appear here!"
+
+[node name="ColorRect" type="ColorRect" parent="LineView/ViewControl/LineText"]
+modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -11.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterNameText" type="RichTextLabel" parent="LineView/ViewControl"]
+self_modulate = Color(0.321569, 0.87451, 0.254902, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -257.0
+offset_right = 312.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+bbcode_enabled = true
+text = "Character Name"
+
+[node name="ColorRect" type="ColorRect" parent="LineView/ViewControl/CharacterNameText"]
+modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 99.0
+offset_right = 39.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="LineView/ViewControl"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 337.0
+offset_top = -463.0
+offset_right = 569.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 36
+text = "Continue"
+
+[node name="OptionsListView" type="Control" parent="." node_paths=PackedStringArray("lastLineCharacterNameText", "lastLineText", "viewControl", "boxContainer")]
+layout_mode = 3
+anchor_left = -0.003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.456
+offset_right = 1.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_pwlqh")
+optionViewPrefab = ExtResource("6_8omcf")
+lastLineCharacterNameText = NodePath("ViewControl/LastLineCharacterNameText")
+lastLineText = NodePath("ViewControl/LastLineText")
+viewControl = NodePath("ViewControl")
+boxContainer = NodePath("ViewControl/VBoxContainer")
+
+[node name="ViewControl" type="Control" parent="OptionsListView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -53.0
+offset_right = -1.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsListView/ViewControl"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -430.0
+offset_right = 516.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LastLineText" type="RichTextLabel" parent="OptionsListView/ViewControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = 185.0
+offset_right = 313.0
+offset_bottom = 270.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+bbcode_enabled = true
+text = "The last line text goes here"
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="OptionsListView/ViewControl/LastLineText"]
+modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 71.0
+offset_right = 35.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LastLineCharacterNameText" type="RichTextLabel" parent="OptionsListView/ViewControl"]
+visible = false
+self_modulate = Color(0.321569, 0.87451, 0.254902, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -416.0
+offset_right = 278.0
+offset_bottom = -363.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
+bbcode_enabled = true
+text = "Character Name"
+
+[node name="ColorRect" type="ColorRect" parent="OptionsListView/ViewControl/LastLineCharacterNameText"]
+modulate = Color(0.203922, 0.192157, 0.192157, 0.458824)
+show_behind_parent = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="InMemoryVariableStorage" type="Node" parent="."]
+script = ExtResource("7_fvi7l")
+
+[node name="TextLineProvider" type="Node2D" parent="."]
+script = ExtResource("8_iafak")
+
+[node name="YarnCommandWrapper" type="Node" parent="."]
+
+[node name="BazNodeTest" type="Node" parent="." node_paths=PackedStringArray("dialog_runner")]
+script = ExtResource("8_7awn8")
+dialog_runner = NodePath("../DialogueRunner")
