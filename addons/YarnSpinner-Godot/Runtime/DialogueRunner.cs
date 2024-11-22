@@ -43,7 +43,9 @@ namespace YarnSpinnerGodot;
 /// The DialogueRunner component acts as the interface between your game and
 /// Yarn Spinner.
 /// </summary>
+[Tool]
 [GlobalClass]
+
 public partial class DialogueRunner : Godot.Node
 {
     /// <summary>
